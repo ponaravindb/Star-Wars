@@ -1,0 +1,38 @@
+<div class="heading">
+  <h1>Star Wars Planet
+  </h1>
+</div>
+<div class="paginator-div">
+  <paginator [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
+    (pageChanged)="onPageChange($event)"></paginator>
+</div>
+
+
+<div *ngIf="!isLoading" class="flex-container">
+  <ng-container *ngFor="let data of planetsData">
+    <div class="card">
+      <div class="header">{{data.name}}</div>
+      <div class="content">
+        <div class="text"><span class="label">Climate: &nbsp;</span>{{data.climate}}</div>
+        <div class="text"><span class="label">Population: &nbsp;</span>{{data.population}}</div>
+        <div class="text"><span class="label">Terrain: &nbsp;</span>{{data.terrain}}</div>
+        <div class="text"><span class="label">Residents: &nbsp;</span>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Height</th>
+              <th>Mass</th>
+              <th>Gender</th>
+            </tr>
+            <tr *ngFor="let res of data.residentObj">
+              <td>{{res.name}}</td>
+              <td>{{res.height}}</td>
+              <td>{{res.mass}}</td>
+              <td>{{res.gender}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
