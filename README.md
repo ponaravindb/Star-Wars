@@ -1,4 +1,4 @@
-# star-wars-planet-directory-app
+# star-wars
 
 Steps to setup and run the project locally - 
 
